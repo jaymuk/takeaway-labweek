@@ -1,10 +1,11 @@
 class Customer
 
-  attr_reader :name, :meal, :total
+  attr_reader :name, :number, :meal, :total
   attr_accessor :confirmation
 
-  def initialize name
+  def initialize name, number
     @name = name
+    @number = number
   end
 
   def order(meal, total)
