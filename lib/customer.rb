@@ -8,7 +8,7 @@ class Customer
     @number = number
   end
 
-  def order(meal, total)
+  def order(meal, total) #meal is a k-v pair of item and quantity
     @meal, @total = meal, total
     "Order placed"
   end

@@ -1,6 +1,6 @@
-feature "Customer makes an order" do
+feature "Customer makes a successful order" do
   scenario "from a menu" do
-    customer = Customer.new "Massud", "07515146965"
+    customer = Customer.new "Massud", "7515146965"
     menu = Menu.new
     order = Order.new customer
     expect(menu.display).to eq "burger: £3, chips: £2"
@@ -10,10 +10,10 @@ feature "Customer makes an order" do
   end
 
   scenario 'with the wrong total' do
-    customer = Customer.new "Massud", "07515146965"
+    customer = Customer.new "Massud", "7515146965"
     menu = Menu.new
     order = Order.new customer
     customer.order({ burger: 2, chips: 1 }, 10)
-    expect { order.check_total }.to raise_error 'Wrong total'
+    expect { order.check_total menu }.to raise_error 'Wrong total'
   end
 end
